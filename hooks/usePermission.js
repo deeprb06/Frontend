@@ -21,7 +21,7 @@ const usePermission = ({ permission }) => {
 
     const getPermissionByRole = async () => {
         setLoading(true);
-        await commonApi({ action: 'permissionByRole', parameters: [id] })
+        commonApi({ action: 'permissionByRole', parameters: [id] })
             .then(([, { data = {} }]) => {
                 return setPermissionList(data);
             })
@@ -30,7 +30,7 @@ const usePermission = ({ permission }) => {
 
     const getAllPermissions = async () => {
         setLoading(true);
-        await commonApi({
+        commonApi({
             action: 'list',
             common: true,
             module: 'permissions',
@@ -42,7 +42,7 @@ const usePermission = ({ permission }) => {
     };
 
     const updateSessionPermissions = async (data) => {
-        await fetch('/api/permission', {
+        fetch('/api/permission', {
             method: 'POST',
             headers: DEFAULT_NEXT_API_HEADER,
             body: JSON.stringify(data),
@@ -52,7 +52,7 @@ const usePermission = ({ permission }) => {
     };
 
     const updateUserPermissions = async () => {
-        await commonApi({ action: 'permissionGet' }).then(
+        commonApi({ action: 'permissionGet' }).then(
             async ([, { data }]) => {
                 updateSessionPermissions(data);
                 return setLoading(false);
@@ -67,7 +67,7 @@ const usePermission = ({ permission }) => {
         };
         try {
             setLoading2(true);
-            await commonApi({
+            commonApi({
                 action: 'permissionUpdate',
                 data: payload,
             }).then(([, { message = '' }]) => {
