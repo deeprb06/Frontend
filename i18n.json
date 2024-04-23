@@ -1,0 +1,10 @@
+{
+    "locales": ["en"],
+    "defaultLocale": "en",
+    "pages": {
+        "*": ["auth", "common"],
+        "/404": ["auth"],
+        "/": ["auth"],
+        "/login": ["auth"]
+    }
+}
