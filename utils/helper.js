@@ -50,6 +50,17 @@ const REGEX = {
     CODE_REPLACE_REGEX: /[^\w ]/gi,
 };
 
+const setSessionData = (data) => {
+    return {
+        emails: data.emails,
+        firstName: data.firstName,
+        fullName: data.fullName,
+        lastName: data.lastName,
+        token: data.token,
+        _id: data._id,
+    }
+}
+
 module.exports = {
     decimalValue,
     hourFormat,
@@ -58,4 +69,5 @@ module.exports = {
     REGEX,
     NUMBER_REGEX,
     FLOAT_REGEX,
+    setSessionData
 };
